@@ -1,0 +1,49 @@
+/**
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+ */
+
+.ml6 {
+  position: absolute;
+  top: 40%;
+  font-weight: 900;
+  font-size: 3.3em;
+}
+
+.ml6 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  /*overflow: hidden;*/
+}
+
+.ml6 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+.ml4 {
+  position: absolute;
+  font-weight: 900;
+  font-size: 4.5em;
+  display: flex;
+  align-items: center;
+  top: 40%;
+  left: 10%;
+}
+
+.ml4 .letters {
+  opacity: 0;
+}
+
+.dot {
+  background-color: #48dbfb;
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+}

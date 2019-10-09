@@ -1,0 +1,95 @@
+<!--
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+-->
+
+<p class="uk-text-lead">Ici vous pouvez créer votre quiz personnalisé</p>
+<hr class="uk-divider-small">
+<p class="uk-text-meta">Remplissez simplement les divers champs du formulaire et cliquer sur "Sauvegarder".</p>
+<p class="uk-text-meta">Le lien d'accès au formulaire vous sera envoyé à l'adresse email renseignée dans le formulaire.</p>
+
+<form class="uk-form-horizontal uk-margin-large" action="create_quiz_processing" method="post" autocomplete="off" onsubmit="return validateEmail()" id="createQuizForm">
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-horizontal-text"><strong>Titre du quiz</strong></label>
+        <div class="uk-form-controls uk-width-medium">
+            <input class="uk-input" id="form-horizontal-text" type="text" placeholder="Le titre du quiz..." name="quizTitle" autocomplete="on" required>
+        </div>
+        <br>
+        <label class="uk-form-label" for="email"><strong>Votre email</strong></label>
+        <div class="uk-form-controls uk-width-medium">
+            <input class="uk-input" id="email" type="mail" placeholder="Votre email..." name="userMail" autocomplete="on" required>
+        </div>
+    </div>
+
+    <hr>
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-horizontal-text">Question n°1</label>
+
+        <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-1">
+                <input class="uk-input" type="text" placeholder="Ecrivez votre question ici..." name="question1" autocomplete="on" required>
+            </div>
+            <div class="uk-width-1-2@s">
+                <input class="uk-input" type="text" placeholder="Choix A" name="rep1a" autocomplete="on" required>
+            </div>
+            <div class="uk-width-1-2@s">
+                <input class="uk-input" type="text" placeholder="Choix B" name="rep1b" autocomplete="on" required>
+            </div>
+            <div class="uk-width-1-2@s">
+                <input class="uk-input" type="text" placeholder="Choix C" name="rep1c" autocomplete="on" required>
+            </div>
+            <div class="uk-width-1-2@s">
+                <input class="uk-input" type="text" placeholder="Choix D" name="rep1d" autocomplete="on" required>
+            </div>
+            <div class="uk-width-1-1">
+              <div class="uk-inline">
+                <div uk-form-custom="target: > * > span:first-child">
+                    <span>La réponse</span>
+                    <select name="repQuiz1">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                    </select>
+                    <button class="uk-button uk-button-default uk-width-1-1" type="button" tabindex="-1" required>
+                        <span></span>
+                        <span uk-icon="icon: chevron-down"></span>
+                    </button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quizForm">
+
+    </div>
+
+    <div class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small" onclick="addQuizForm()"><span uk-icon="plus"></span> Ajouter une question</div>
+
+    <input type="submit" style="display:none" name="submit" />
+    <a href="javascript:void()" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small" onclick="document.getElementById('createQuizForm').submit.click();">Sauvegarder</a>
+
+    <input type="hidden" value="1" name="numberOfQuestion" id="numberOfQuestion">
+
+</form>
+
+<script type="text/javascript">
+  function validateEmail() {
+    if(ve(document.getElementById('email').value)) {
+      return true
+    } else {
+      document.getElementById('email').classList.add('uk-form-danger')
+      return false
+    }
+  }
+
+  function ve(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+</script>

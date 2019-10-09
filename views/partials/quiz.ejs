@@ -1,0 +1,57 @@
+<!--
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+-->
+
+<br>
+<div id="inGame">
+  <div id="host">
+    <h1 id="question" class="uk-heading-small uk-margin-medium"></h1><span id="questionsInfos"></span>
+    <div id="countdown">
+      <div id="countdown-number"></div>
+      <svg id="timer-svg">
+        <circle id="timer-svg--circle" r="140" cx="160" cy="160"></circle>
+      </svg>
+    </div>
+    <div id="playerAnsweredContainer"></div>
+  </div>
+  <div id="client">
+    <h1>Cliquez sur la réponse de votre choix...</h1>
+    <br>
+    <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+        <div style="cursor:pointer;" id="00">
+          <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-small" id="0">
+            <p>Choix A</p>
+            <h3 id="responseA" class="uk-card-title uk-margin-small"></h3>
+          </div>
+        </div>
+        <div style="cursor:pointer;" id="11">
+          <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-small" id="1">
+            <p>Choix B</p>
+            <h3 id="responseB" class="uk-card-title uk-margin-small"></h3>
+          </div>
+        </div>
+        <div style="cursor:pointer;" id="22">
+          <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-small" id="2">
+            <p>Choix C</p>
+            <h3 id="responseC" class="uk-card-title uk-margin-small"></h3>
+          </div>
+        </div>
+        <div style="cursor:pointer;" id="33">
+          <div class="uk-card uk-card-default uk-card-hover uk-card-body uk-margin-small" id="3">
+            <p>Choix D</p>
+            <h3 id="responseD" class="uk-card-title uk-margin-small"></h3>
+          </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <button id="joker" class="uk-button uk-button-danger uk-text-center">Utilisez votre 50/50</button>
+    <audio id="audMouseClick" src="sound/mouse_click.mp3" ></audio>
+    <audio id="audClockTicking" src="sound/clock_ticking.mp3"></audio>
+    <audio id="audGangeJingle" src="sound/gange_jingle.mp3"></audio>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<!--
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+-->
+
+<div id="waitingQueue">
+  <div class="uk-flex uk-flex-center uk-margin-top uk-heading-line">
+    <h1 class="uk-heading-medium">Salle d'attente</h1>
+  </div>
+  <% if(host) { %>
+    <p class="uk-text-center uk-text-large">La partie débute dans <strong id="tickTimerWaitingQueue">2 minutes et 30 secondes</strong></p>
+    <p class="uk-text-center uk-text-large">L'ID de la partie est : <strong><%= gameId %></strong></p>
+    <p class="uk-text-center uk-text-large">Partagez le lien à vos amis : <a href="/join_game/<%= gameId %>" target="_blank"><%= location %>/join_game/<%= gameId %></a> !</p>
+    <input type="hidden" id="nbPlayer" value="<%= nbPlayer %>">
+  <% } else { %>
+    <input type="hidden" id="pseudo" value="<%= pseudo %>">
+  <% } %>
+    <input type="hidden" id="gameId" value="<%= gameId %>">
+
+    <p class="uk-text-center">Joueur(s) dans la salle d'attente : </p>
+    <div id="newPlayer" class="uk-text-center">
+    </div>
+    <% if(host) { %>
+      <br>
+      <button id="startGame" class="uk-button uk-button-secondary uk-button-large" disabled>Lancer la partie</button>
+    <% } %>
+
+</div>

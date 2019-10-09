@@ -1,0 +1,67 @@
+<!--
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+-->
+
+<h2>Documentation utilisateur</h2>
+<p><strong>Projet P2 - HES d'été 2018/2019</strong></p>
+<p>Romain Capocasale, Vincent Moulin et Jonas freiburghaus, INF2dlma</p>
+<hr>
+<p class="uk-text-meta"></p>
+
+<h3>Introduction</h3>
+<hr class="uk-divider-small">
+<p>Fumseck est un jeu de quiz multijoueur développé en Javascript. Le but est simple : on crée une partie, l'appareil depuis laquelle est crée la partie devient l'hôte.</p>
+<p>Des joueurs peuvent rejoindre une partie en entrant l'ID de la partie. Lorsque le jeu démarre, les questions défilent sur l'hôte, et les joueurs ont quatre choix de réponse. Ils peuvent sélectionner leur réponse directement depuis leur appareil.</p>
+<p>On peut jouer au quiz depuis n'importe quel support, du moment qu'il  possède une connexion internet et un navigateur. A la fin de la partie, les scores de chacun sont affichés.</p>
+
+<h3>Node.js</h3>
+<hr class="uk-divider-small">
+<p>Node.js est un environnement bas niveau qui permet le développement d'application web côté serveur, en utilisant Javascript. Node est très rapide, et ceci grâce au moteur d'exécution V8 de Google Chrome, et son fonctionnement non-bloquant.</p>
+<p>Le noyau de Node n'est pas très grand, cependant une grand quantité de modules peuvent y être ajoutés à l'aide du gestionnaire de paquets de Node, npm.</p>
+<p>L'envoie d'email, la génération d'ID unique, la gestion des routes, les templates, etc.. ont été développés dans notre application à l'aide de différents paquets.</p>
+
+<h3>Lancer le serveur</h3>
+<hr class="uk-divider-small">
+<p>Pour pouvoir lancer un serveur Node, vous devez l'avoir préalablement téléchargé : <i>https://nodejs.org/en/</i></p>
+<p>Une fois Node.js téléchargé, clonez le projet git : <i>https://forge.ing.he-arc.ch/gitlab/inf/1819/projets-p2-hes-ete/fumseck/fumseck</i></p>
+<p>Rendez-vous à la racine du dossier <i>Fumseck</i>. Ouvrez un invite de commande et tapez (dans l'ordre) : </p>
+<ul>
+  <li>npm install</li>
+  <li>npm start</li>
+</ul>
+De plus, il est nécessaire de lancer un serveur python qui permet de faire des suggestions de mot durant une énigme.
+Il faut se rendre dans le dossier lstm_word_generator et lancer la commande.
+<ul>
+  <li>python model_server.py</li>
+</ul>
+<p>Rendez-vous ensuite sur <i>http://localhost:34335/</i>. 34335 est le port configuré par défaut, s'il est modifié, le nouveau sera affiché dans la console.</p>
+
+<h3>Jouer au jeu</h3>
+<hr class="uk-divider-small">
+<p>Commencer d'abords par vous rendre sur la page d'acceuil où vous trouvez le bouton permettant de créer une partie. Une fois sur la page de création de partie, vous avez la possibilité de selectionner le nombre de joueur maximum, le theme du quiz, le nombre de question et le temps pour réponde à une question. </p>
+<p>Une fois les options configuré, cliquer sur le bouton <i>Créer la partie</i>. Vous serez redirigé sur l'écran de file d'attente, partagez le lien d'invitation à vos amis pour qu'il rejoigne la partie. Les personnes qui rejoignent la partie ont la possibilité de choisir un pseudo.</p>
+<p>La partie se lance automatiquement au bout de 2 minutes et 30 secondes si tous les joueurs n'ont pas rejoints la file d'attente. L'hôte à la possibilité de lancer la partie quand il le veut en appuyant sur le bouton <i>Lancer la partie</i></p>
+<p>Une fois la partie lancée, les joueurs répondent aux différentes questions. dès qu'un joueur à répondu à une question son nom s'affiche sur l'écran de l'hôte. Le joueur à la possibilité d'utiliser une fois par partie un joker. Le joker supprime 2 mauvaises propositions l'utilisateur.</p>
+<p>Une fois la partie terminé, un classement des 3 premiers joueurs s'affichent à l'écran. Àprès 10 secondes, un tableau récapitulatif des scores s'affiche</p>
+
+<h3>Quiz personalisé</h3>
+<hr class="uk-divider-small">
+<p>L'utilisateur à la possibilité de créer ses propres quiz sous l'onglet <i>Créer un quiz</i> sur la page d'acceuil. L'utilisateur peut alors créer une question ainsi que 4 propositions et selectionné celle qui est corercte.</p>
+<p>Une fois les question renseignées, l'utilisateur peut valider le quiz et reçoit un email avec un lien lui permettant de créer une partie avec son questionnaire personalisé. Par la suite la partie se passe exactement de la même manière.</p>
+
+<h3>Téléchargement des quiz</h3>
+<hr class="uk-divider-small">
+<p>Un script python <i>download_oqdb_dataset.py</i> est situé dans le dossier <i>util</i> du projet. lancer un invite de commande, et exécutez cette commande :</p>
+<ul>
+  <li><i>python download_oqdb_dataset.py --f <strong>oqdb_nom_quiz.json</strong> --u <strong>https://www.kiwime.com/oqdb/files/1036987992/OpenQuizzDB_036/openquizzdb_36.json</strong> --d "../app/model"</i></li>
+</ul>
+<p>les questionnaires peuvent être téléchargés depuis <i>https://www.openquizzdb.org/listing.php</i>, sélectionnez votre quiz, cliquez sur <i>json</i> et remplacez l'url dans la ligne de commande ci-dessus.</p>
+
+<h3>Visuel</h3>
+<hr class="uk-divider-small">
+<p>Pour le rendu visuel du site, nous avons utilisé le module Node.js EJS, qui est un template utilisé dans nos pages web. Au niveau du design, nous avons utilisé le CDN proposé par UIkit. UIkit est un framewrok front-end css.</p>
+<p>Nous avons aussi écrit du code css et utilisé diverses bibliothèques pour gérer nos animations.</p>

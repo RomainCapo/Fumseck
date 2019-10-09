@@ -1,0 +1,31 @@
+{
+  "name": "fumseck",
+  "version": "1.0.0",
+  "description": "Jeu de quizz en ligne et en temps réel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://forge.ing.he-arc.ch/gitlab/jonas.freiburg/fumseck"
+  },
+  "keywords": [
+    "quiz"
+  ],
+  "author": "Romain Capocasale, Vincent Moulin, Jonas Freiburghaus",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "idgen": "^2.1.0",
+    "nodemailer": "^6.3.0",
+    "socket.io": "^2.2.0",
+    "sweetalert": "^2.1.2",
+    "uikit": "^3.1.7"
+  }
+}

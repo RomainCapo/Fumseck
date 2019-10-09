@@ -1,0 +1,32 @@
+<!--
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+-->
+
+<div id="endGame">
+  <h1 class="uk-heading-line uk-text-center uk-text-2xlarge"><span>Fin de la partie</span></h1>
+
+  <% if (host) { %>
+  <h3 class="uk-text-center">Voici le classement final</h3>
+
+  <table class="uk-table uk-table-striped">
+    <thead>
+      <tr id="participants">
+        <th>Question</th>
+      </tr>
+    </thead>
+    <tbody id="scores">
+    </tbody>
+  </table>
+
+  <div class="uk-flex uk-flex-center">
+    <p uk-margin>
+        <a class="uk-button uk-button-primary uk-button-large" href="/create_game">Relancer une partie</a>
+        <a class="uk-button uk-button-secondary uk-button-large" href="/">Quitter le jeu</a>
+    </p>
+  </div>
+  <% } %>
+</div>

@@ -1,0 +1,38 @@
+/**
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+ */
+
+#startGame{
+  display: table;
+  margin: 0 auto;
+  width: 50%;
+  }
+
+@media screen and (max-width: 700px) {
+  #startGame{
+    width: 80%;
+    }
+}
+
+#newPlayer {
+  display: table;
+  margin: 0 auto;
+}
+
+.displayPlayer {
+  animation-name: displayPlayerAnimation;
+  animation-duration: 2s;
+  width: 300px;
+}
+
+@keyframes displayPlayerAnimation {
+  0%   {left: 100px; opacity: 0;}
+  50%  {left: -4px; opacity: 0.5;}
+  65%  {left: 2px; opacity: 0.65;}
+  80%  {left: -1px; opacity: 0.8;}
+  100% {left: 0px; opacity: 1;}
+}

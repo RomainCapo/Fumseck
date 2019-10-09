@@ -1,0 +1,55 @@
+<!--
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include partials/head %>
+
+    <link rel="stylesheet" href="/css/heading.css">
+  </head>
+  <body>
+
+    <div class="uk-height-small uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
+     data-src="https://source.unsplash.com/evlkOfkQ5rE/1600x900"
+     data-srcset="https://source.unsplash.com/evlkOfkQ5rE/1600x900"
+     data-sizes="(min-width: 650px) 650px, 100vw" uk-img>
+
+      <div class="uk-flex uk-flex-center uk-margin-top">
+        <h2 class="uk-heading-small" id="heading-join">Rejoindre une partie</h2>
+      </div>
+
+    </div>
+
+    <div class="uk-container">
+      <br>
+      <a class="uk-link-muted" href="/"><span uk-icon="icon: chevron-left"></span>Retour à l'accueil</a>
+
+      <form class="uk-form-horizontal uk-margin-large uk-text-center" method="post" action="/game" autocomplete="off" id="joinGameForm">
+          <div class="uk-margin">
+              <div class="uk-inline">
+                  <span class="uk-form-icon" uk-icon="icon: user"></span>
+                  <input class="uk-input uk-form-large" type="text" placeholder="Votre pseudo" name="pseudo" autofocus maxlength="15" required>
+              </div>
+          </div>
+          <div class="uk-margin">
+              <div class="uk-inline">
+                  <span class="uk-form-icon" uk-icon="icon: link"></span>
+                  <input class="uk-input uk-form-large" type="text" placeholder="ID de la partie" value="<%= gameId %>" name="gameId" required>
+              </div>
+          </div>
+
+          <input type="submit" style="display:none" name="submit" />
+          <a href="#" class="uk-button uk-button-primary" onclick="document.getElementById('joinGameForm').submit.click()">Rejoindre la partie</a>
+      </form>
+
+      <% include partials/footer %>
+
+    </div>
+  </body>
+</html>

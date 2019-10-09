@@ -1,0 +1,165 @@
+<!--
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include partials/head %>
+    <link rel="icon" href="..\public\img\icon\favicon.ico" type="image/x-icon"/>
+  </head>
+  <body>
+
+     <div class="uk-height-small uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
+     data-src="https://source.unsplash.com/evlkOfkQ5rE/1600x900"
+     data-srcset="https://source.unsplash.com/evlkOfkQ5rE/1600x900"
+     data-sizes="(min-width: 650px) 650px, 100vw" uk-img>
+
+      <div class="uk-flex uk-flex-center uk-margin-top">
+        <h1 class="uk-heading-medium">Créer une partie</h1>
+      </div>
+
+    </div>
+
+    <div class="uk-container">
+      <!-- TODO : add labels -->
+      <br>
+      <a class="uk-link-muted" href="/"><span uk-icon="icon: chevron-left"></span>Retour à l'accueil</a>
+
+      <div id="error" style="display:none">
+        <br>
+        <div class="uk-alert-danger uk-margin-small" uk-alert>
+            <p id="textError"></p>
+        </div>
+      </div>
+
+      <form class="uk-form-horizontal uk-margin-large uk-text-center" method="post" action="/game_host" onsubmit="return validateFormCreate()" id="createGameForm">
+
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <div uk-form-custom="target: > * > span:first-child">
+                  <select name="nbPlayer" id="nbPlayer">
+                      <option value="">Nombre de joueur(s)</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                  </select>
+                  <button class="uk-button uk-button-default uk-width-medium uk-form-large" type="button" tabindex="-1">
+                      <span></span>
+                      <span uk-icon="icon: chevron-down"></span>
+                  </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <div uk-form-custom="target: > * > span:first-child">
+                  <select name="theme" id="theme">
+                    <%
+                        if(typeof load_game == 'undefined') {
+                          %><option value="">Thème de la partie</option><%
+                          for (var j = 0; j < topics.names.length; j++) {
+                              %><option value="<%= topics.paths[j] %>"><%= topics.names[j].toUpperCase() %><%
+                          }
+                        }
+                        else {
+                          %><option value="<%= quizFilename %>"><%= quizTitle.toUpperCase() %><%
+                        }
+                    %>
+                  </select>
+                  <button class="uk-button uk-button-default uk-width-medium uk-form-large" type="button" tabindex="-1">
+                      <span></span>
+                      <span uk-icon="icon: chevron-down"></span>
+                  </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <div uk-form-custom="target: > * > span:first-child">
+                  <select name="nbQuestion" id="nbQuestion">
+                      <%
+                          if(typeof load_game == 'undefined') {
+                            %><option value="">Nombre de question(s)</option><%
+                            for (var j = 1; j < 16; j++) {
+                                %><option value="<%= j %>"><%= j %><%
+                            }
+                          }
+                          else {
+                            %><option value="<%= nbQuestions %>"><%= nbQuestions %><%
+                          }
+                      %>
+                  </select>
+                  <button class="uk-button uk-button-default uk-width-medium uk-form-large" type="button" tabindex="-1">
+                      <span></span>
+                      <span uk-icon="icon: chevron-down"></span>
+                  </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <div uk-form-custom="target: > * > span:first-child">
+                  <select name="responseTime" id="responseTime">
+                    <option value="">Temps pour répondre</option>
+                    <option value="15">15 secondes</option>
+                    <option value="30">30 secondes</option>
+                    <option value="45">45 secondes</option>
+                    <option value="60">60 secondes</option>
+                  </select>
+                  <button class="uk-button uk-button-default uk-width-medium uk-form-large" type="button" tabindex="-1">
+                      <span></span>
+                      <span uk-icon="icon: chevron-down"></span>
+                  </button>
+              </div>
+            </div>
+          </div>
+
+          <input type="submit" style="display:none" name="submit" />
+          <a href="#" class="uk-button uk-button-primary" onclick="document.getElementById('createGameForm').submit.click()">Créer la partie</a>
+
+      </form>
+
+      <% include partials/footer %>
+
+    </div>
+
+    <script type="text/javascript">
+
+      function validateFormCreate() {
+        var nbPlayer = document.getElementById('nbPlayer');
+        var theme = document.getElementById('theme');
+        var nbQuestion = document.getElementById('nbQuestion');
+
+        if((nbPlayer.options[nbPlayer.selectedIndex].value == '') || (theme.options[theme.selectedIndex].value == '') || (nbQuestion.options[nbQuestion.selectedIndex].value == '') || (responseTime.options[responseTime.selectedIndex].value == '')) {
+          document.getElementById('error').style.display = 'block'
+          document.getElementById('textError').innerHTML = 'Veuillez choisir toutes les options !'
+          return false
+        } else {
+          return true
+        }
+      }
+
+    </script>
+
+  </body>
+</html>

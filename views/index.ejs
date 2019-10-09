@@ -1,0 +1,90 @@
+<!--
+ * Authors : Romain Capocasale, Vincent Moulin and Jonas Freiburghaus
+ * Date : August and September 2019
+ * Projet name : Fumseck
+ * Class : INF2dlm-A
+ * Course : Project P2, Summer HES
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <% include partials/head %>
+  </head>
+  <body>
+    <div class="uk-height-small uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
+     data-src="https://source.unsplash.com/gjs9D47Ipco/1600x900"
+     data-srcset="https://source.unsplash.com/gjs9D47Ipco/1600x900"
+     data-sizes="(min-width: 650px) 650px, 100vw" uk-img>
+
+      <div class="uk-flex uk-flex-center uk-margin-top">
+        <h1 class="uk-heading-medium">Fumseck 🐦</h1>
+      </div>
+
+    </div>
+
+    <div class="uk-container">
+
+      <br>
+      <ul class="uk-subnav uk-tab" uk-switcher="animation: uk-animation-slide-left">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Créer un quiz</a></li>
+          <li><a href="#">Aide</a></li>
+          <li><a href="#">A propos</a></li>
+      </ul>
+
+      <ul class="uk-switcher uk-margin">
+
+          <!-- Tab Home -->
+          <li>
+            <div class="uk-text-center">
+                <p class="uk-text-lead">Bienvenue sur Fumseck, un jeu pour apprendre de nouvelles choses tout en s'amusant !</p>
+                <p class="uk-text-meta">Vous avez le choix !</p>
+                <p class="uk-text-meta">Vous pouvez créer et hébérger votre partie, ou alors rejoindre vos amis dans une partie existante</p>
+            </div>
+
+            <div class="uk-flex uk-flex-center">
+              <p uk-margin>
+                  <a class="uk-button uk-button-primary" href="create_game">Créer une partie</a>
+                  <a class="uk-button uk-button-secondary" href="join_game">Rejoindre une partie</a>
+              </p>
+            </div>
+          </li>
+
+          <!-- Tab create form -->
+          <li>
+            <% include partials/createQuiz %>
+          </li>
+
+          <!-- Tab Help -->
+          <li>
+            <% include partials/help %>
+          </li>
+
+          <!-- Tab About -->
+          <li>
+            <p class="uk-text-lead">A propos de nous...</p>
+            <hr class="uk-divider-small">
+            <p class="uk-text-meta">Nous sommes trois beaux étudiants</p>
+            <p class="uk-text-lead">Droits d'auteur</p>
+            <hr class="uk-divider-small">
+            <p class="uk-text-meta">Les quiz ont été imaginés et écrits par : </p>
+            <ul id="copyrights">
+              <%
+                  for(let copyright of copyrights) {
+                      %><li><%= copyright.theme %> : <%= copyright.redacteur %> , <%= copyright.fournisseur %></li><%
+                  }
+              %>
+            </ul>
+            <p class="uk-text-meta">Logos et images : </p>
+            <ul>
+              <li>Icons made by <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+            </ul>
+          </li>
+      </ul>
+
+      <% include partials/footer %>
+
+    </div>
+  </body>
+</html>

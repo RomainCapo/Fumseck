@@ -1,0 +1,14 @@
+/node_modules/*
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+http.get('http://localhost:34334/getWordSuggestion/test/3', (resp) => {
+  let data = '';
+
+  resp.on('end', () => {
+    console.log(JSON.parse(data).explanation);
+  });
+
+}).on("error", (err) => {
+  console.log("Error: " + err.message);
+});

@@ -5,7 +5,7 @@ Written in JavaScript.
 
 ## Team
 
-* Jonas Freiburghaus [@JonasFreibs23](https://github.com/JonasFreibs23)
+* Jonas Freiburghaus [@JonasFreibur](https://github.com/JonasFreibur)
 * Romain Capocasale [@RomainCapo](https://github.com/RomainCapo)
 * Vincent Moulin [@dicksor](https://github.com/dicksor)
 
